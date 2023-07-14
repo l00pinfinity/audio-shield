@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "381d4389-4c5c-47d1-a67f-3477ee85fb62",
+		"name": "Audio-Shield",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19032465",
+		"_collection_link": "https://silkwebhq.postman.co/workspace/Silkweb-HQ~f2efe5e4-84e1-4a29-a306-809206c87e9b/collection/19032465-381d4389-4c5c-47d1-a67f-3477ee85fb62?action=share&creator=19032465&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "1. Upload Audio file (Music, Podcast etc)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "audioFile",
+							"type": "file",
+							"src": "/C:/Users/User/Documents/A one minute TEDx Talk for the digital age  Woody Roseland  TEDxMileHigh.mp3"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/audio/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"audio",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. TranscribeUploadedAudio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"audioUrl\":\"https://audioshield.s3.amazonaws.com/5bgck1_1686830588899.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/audio/transcribe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"audio",
+						"transcribe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. TranscribeJobDetails",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jobKey\":\"5bgck1_1686830588899.mp3.json\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/audio/analyze",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"audio",
+						"analyze"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. ComprehendJobDetails",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jobKey\":\"5bgck1_1686830588899.mp3.txt\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/audio/comprehend",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"audio",
+						"comprehend"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UploadURLandSave",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"audioUrl\":\"https://www.youtube.com/watch?v=fLeJJPxua3E\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/audio/upload/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"audio",
+						"upload",
+						"url"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
