@@ -4,6 +4,19 @@ Shield empowers content creators, platform administrators, and users to take con
 
 ## Installation
 
+Make sure you have a .env file in the root of your project that contains the corresponding environment variables
+
+```sh
+ACCESSKEYID=your-access-key
+SECRETACCESSKEY=your-secret-access-key
+OPENAIKEY=your-openai-key
+AWS_REGION=your-aws-region
+AWS_PROFILE=your-aws-profile
+BUCKET_NAME=your-bucket-name
+OUTPUT_BUCKET_NAME=your-output-bucket-name
+PERSPECTIVEKEY=your-perspective-key
+```
+
 ```bash
 npm install
 ```
